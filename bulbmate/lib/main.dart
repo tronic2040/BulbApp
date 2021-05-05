@@ -1,15 +1,42 @@
+import 'package:bulbmate/saveLoad.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:confirm_dialog/confirm_dialog.dart';
 
-List<Bulbs> allBulbs = [
-  Bulbs('1', '10w', 'Warm White', 'x2'),
-  Bulbs('2', '15w', 'Warm White', 'x2'),
-  Bulbs('3', '20w', 'Warm White', 'x2'),
-  Bulbs('4', '25w', 'Warm White', 'x2'),
+import 'Bulb.dart';
+
+
+
+List<String> allBulbs = [
+  'E10','E11','E12','E14','E17',
+  'E26','E27','E39','E40','EX39',
+  'GU10','GU24'
 ];
 
-Bulbs selectedBulb;
+List<String> allRooms = [
+  'Kitchen','Bedroom','Bathroom','Living Room'
+];
 
-void main() {
+List<String> bulbColours = [
+  'Daylight','Natural White','Cool White','Warm White','Soft White'
+];
+
+List<Bulbs> kitchenList = [];
+List<Bulbs> bedroomList = [];
+List<Bulbs> bathroomList = [];
+List<Bulbs> livingRoomList = [];
+List<Bulbs> CurList = [];
+
+List<RoomBulbsList> Rooms = [];
+
+var selectedroomnum;
+
+var currentList;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await readList();
+
   runApp(MaterialApp(
     title: "Bulb Mate",
     home: MainPage(),
@@ -21,15 +48,7 @@ class MainPage extends StatefulWidget{
 }
 
 class HomePage extends State<MainPage>{
-
-
-
-  void setSelectedBulb(Bulbs bulb) {
-    setState(() => selectedBulb = bulb);
-  }
-
   String text = "Bulb Mate";
-  var currentList;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,10 +92,18 @@ class HomePage extends State<MainPage>{
                   ),
                 )),
             //CustomListTile(Icons.add,'Add Room',()=>{}),
-            CustomListTile(Icons.lightbulb,'Living Room',()=>{}),
+            CustomListTile(Icons.lightbulb,'Living Room',(){
+              this.setState((){
+                text = "Living Room";
+                currentList = LivingRoomList();
+              });
+              Navigator.of(context).pop();
+            }),
             CustomListTile(Icons.lightbulb,'Kitchen',(){
               this.setState((){
                 text = "Kitchen";
+                selectedroomnum = 0;
+                RoomToList(text);
                 currentList = KitchenList();
               });
               Navigator.of(context).pop();
@@ -88,7 +115,13 @@ class HomePage extends State<MainPage>{
               });
               Navigator.of(context).pop();
             }),
-            CustomListTile(Icons.lightbulb,'Bathroom',()=>{}),
+            CustomListTile(Icons.lightbulb,'Bathroom',(){
+              this.setState((){
+                text = "Bathroom";
+                currentList = BathroomList();
+              });
+    Navigator.of(context).pop();
+    }),
           ],
         ),
       ),
@@ -151,8 +184,9 @@ class BuldListTile extends StatelessWidget {
   String Watts;
   String Quantity;
   String Colour;
+  Function longPress;
 
-  BuldListTile(this.imageLoc,this.Name,this.Watts,this.Colour,this.Quantity);
+  BuldListTile(this.imageLoc,this.Name,this.Watts,this.Colour,this.Quantity,this.longPress);
 
   @override
   Widget build(BuildContext context) {
@@ -164,7 +198,7 @@ class BuldListTile extends StatelessWidget {
         ),
         child: InkWell(
           splashColor: Colors.lightBlue,
-          onTap: ()=>{},
+          onTap: longPress,
           child: Container(
             height: 100,
             child: Row(
@@ -190,14 +224,75 @@ class BuldListTile extends StatelessWidget {
   }
 }
 
-class KitchenList extends StatelessWidget {
+/*class KitchenList extends StatefulWidget{
+  KitchenListNew createState()=> KitchenListNew();
+}
+
+class KitchenListNew extends State<KitchenList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: allBulbs.length,
+      itemCount: kitchenList.length,
       itemBuilder: (context, index) {
-        return BuldListTile('images/bulb.png', allBulbs[index].Name, allBulbs[index].Watts, allBulbs[index].Colour, allBulbs[index].Amount);
+        return BuldListTile('images/bulb.png', kitchenList[index].Name, kitchenList[index].Watts, kitchenList[index].Colour, kitchenList[index].Amount,() async {
+          if (await confirm(
+            context,
+            title: Text('Confirm'),
+            content: Text('Would you like to remove ' + kitchenList[index].Name + '?'),
+            textOK: Text('Yes'),
+            textCancel: Text('No'),
+          )) {
+            kitchenList.removeAt(index);
+            return setState(() {});
+          }
+          return print('pressedCancel');
+        });
       },
+
+    );
+  }
+}*/
+
+
+class KitchenList extends StatefulWidget{
+  KitchenListNew createState()=> KitchenListNew();
+}
+
+void RoomToList(String selectedRoom) {
+  CurList.clear();
+  for (var room in AllRooms) {
+    if (room.roomname == selectedRoom) {
+      for (Bulbs bulb in room.bulb) {
+        CurList.add(bulb);
+        print(bulb.Name);
+      }
+    }
+  }
+}
+
+
+class KitchenListNew extends State<KitchenList> {
+  @override
+
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: CurList.length,
+      itemBuilder: (context, index) {
+        return BuldListTile('images/bulb.png', CurList[index].Name, CurList[index].Watts, CurList[index].Colour, CurList[index].Amount,() async {
+          if (await confirm(
+            context,
+            title: Text('Confirm'),
+            content: Text('Would you like to remove ' + CurList[index].Name + '?'),
+            textOK: Text('Yes'),
+            textCancel: Text('No'),
+          )) {
+            currentList.removeAt(index);
+            return setState(() {});
+          }
+          return print('pressedCancel');
+        });
+      },
+
     );
   }
 }
@@ -205,35 +300,83 @@ class KitchenList extends StatelessWidget {
 class BedroomList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        BuldListTile('images/bulb.png', 'LED', '50W', 'Warm White', 'x1'),
-        BuldListTile('images/bulb.png', 'Tube', '25W', 'Cool White', 'x5'),
-      ],
+    return ListView.builder(
+      itemCount: bedroomList.length,
+      itemBuilder: (context, index) {
+        return BuldListTile('images/bulb.png', bedroomList[index].Name, bedroomList[index].Watts, bedroomList[index].Colour, bedroomList[index].Amount,()=>{});
+      },
     );
   }
 }
 
-class Bulbs {
-  String Name;
-  String Watts;
-  String Colour;
-  String Amount;
-
-  Bulbs(this.Name, this.Watts, this.Colour, this.Amount);
+class BathroomList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: bathroomList.length,
+      itemBuilder: (context, index) {
+        return BuldListTile('images/bulb.png', bathroomList[index].Name, bathroomList[index].Watts, bathroomList[index].Colour, bathroomList[index].Amount,()=>{});
+      },
+    );
+  }
 }
+
+class LivingRoomList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: livingRoomList.length,
+      itemBuilder: (context, index) {
+        return BuldListTile('images/bulb.png', livingRoomList[index].Name, livingRoomList[index].Watts, livingRoomList[index].Colour, livingRoomList[index].Amount,()=>{});
+      },
+    );
+  }
+}
+
+class popUp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Welcome to Flutter',
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Welcome to Flutter'),
+        ),
+        body: Center(
+          child: FlatButton(
+            child: Text('Confirm Dialog'),
+            onPressed: () async {
+              if (await confirm(
+                context,
+                title: Text('Confirm'),
+                content: Text('Would you like to remove?'),
+                textOK: Text('Yes'),
+                textCancel: Text('No'),
+              )) {
+                return print('pressedOK');
+              }
+              return print('pressedCancel');
+            },
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+
 
 class CreateNewEntry extends StatefulWidget{
   CreateEntry createState()=> CreateEntry();
 }
 
 class CreateEntry extends State<CreateNewEntry> {
-  Bulbs selectedBulb = allBulbs[1];
-  String bulbName = '';
-  String Room = '';
+  String selectedBulb = allBulbs[0];
+  String selectedRoom = allRooms[0];
+  String selectedColour = bulbColours[0];
   String Watts = '';
   String Amount = '';
-  String Colour = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -242,48 +385,126 @@ class CreateEntry extends State<CreateNewEntry> {
       ),
       body: ListView(
         children: [
-          DropdownButton<Bulbs>(
+          DropdownButton<String>(
             hint: Text('Select Bulb Type'),
             isExpanded: true,
+            itemHeight: 80,
 
-            items: allBulbs.map((Bulbs value) {
-              return new DropdownMenuItem<Bulbs>(
+            items: allBulbs.map((String value) {
+              return new DropdownMenuItem<String>(
                   value: value,
                   child: Row(
                     children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Image.asset('images/bulb.png',width: 60, height: 60),
+                        child: Image.asset('images/bulb.png',width: 50, height: 50),
                       ),
                       Padding(
-                        padding: const EdgeInsets.all(16.0),
-                        child: Text(value.Name),
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(value),
                       ),
                     ],
                   )
               );
             }).toList(),
             value: selectedBulb,
-            onChanged: (Bulbs newValue) {
+            onChanged: (String newValue) {
               setState(() {
                 selectedBulb = newValue;
-                bulbName = newValue.Name;
-                Room = 'Kitchen';
-                Amount = '99';
-                Watts = '1000';
-                Colour = 'Purkle';
               });
-              print(selectedBulb.Name);
             },
           ),
-          Text('Room Select -- DropDown'),
-          Text('Bulb Select -- DropDown'),
-          Text('Wattage'),
-          Text('Color -- Dowpdown'),
+          DropdownButton<String>(
+            hint: Text('Select Room'),
+            isExpanded: true,
+            //itemHeight: 80,
+
+            items: allRooms.map((String value) {
+              return new DropdownMenuItem<String>(
+                  value: value,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(value),
+                      ),
+                    ],
+                  )
+              );
+            }).toList(),
+            value: selectedRoom,
+            onChanged: (String newValue) {
+              setState(() {
+                selectedRoom = newValue;
+              });
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: new InputDecoration(labelText: "Bulb Wattage"),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
+              onChanged: (String newValue) {
+                setState(() {
+                  Watts = newValue;
+                });
+              },// Only numbers can be entered
+            ),
+          ),
+          DropdownButton<String>(
+            hint: Text('Select Room'),
+            isExpanded: true,
+            //itemHeight: 80,
+
+            items: bulbColours.map((String value) {
+              return new DropdownMenuItem<String>(
+                  value: value,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: Text(value),
+                      ),
+                    ],
+                  )
+              );
+            }).toList(),
+            value: selectedColour,
+            onChanged: (String newValue) {
+              setState(() {
+                selectedColour = newValue;
+              });
+            },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: new InputDecoration(labelText: "Bulb Quantity"),
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly
+              ],
+              onChanged: (String newValue) {
+                setState(() {
+                  Amount = newValue;
+                });
+              },// Only numbers can be entered
+            ),
+          ),
           ElevatedButton(onPressed: (){
-            AddBulb(Bulbs(bulbName, Watts, Colour, Amount));
+            AddBulb(Bulbs(selectedBulb, Watts, selectedColour, Amount),selectedRoom);
             print('Bulb Added');
-            print(allBulbs);
+            print(selectedBulb + ' - ' + Watts +' - ' +  selectedColour +' - ' +  selectedRoom + ' - ' + Amount);
+            setState(() {
+
+            });
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MainPage()),
+            );
             }, child: Text('Add New Bulb'))
         ],
       )
@@ -292,6 +513,11 @@ class CreateEntry extends State<CreateNewEntry> {
   }
 }
 
-void AddBulb(Bulbs newBulb) {
-  allBulbs.add(newBulb);
+
+
+
+
+void AddBulb(Bulbs newBulb, String room) {
+      CurList.add(newBulb);
+      saveList(CurList,'Kitchen');
 }
