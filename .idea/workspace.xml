@@ -11,9 +11,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99ecc036-4a47-40f7-8c73-58f0cf7a8ff7" name="Default Changelist" comment="Save Function added">
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/BA15d.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/BA15s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/E40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/EX39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/G12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/G4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/G9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU5.3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GY6.35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GY8.6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/GY8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/MEDIUM BI-PIN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/MINI BI-PIN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/SC.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/SINGLE BI-PIN.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/images/lightbulb+bases.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bulbmate/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
