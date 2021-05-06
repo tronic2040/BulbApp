@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bulbmate/saveLoad.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,14 +31,13 @@ List<Bulbs> CurList = [];
 
 List<RoomBulbsList> Rooms = [];
 
-var selectedroomnum;
 
 var currentList;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await readList();
-
+  await fetchRooms();
+  //await clearPrefs();
   runApp(MaterialApp(
     title: "Bulb Mate",
     home: MainPage(),
@@ -95,30 +96,32 @@ class HomePage extends State<MainPage>{
             CustomListTile(Icons.lightbulb,'Living Room',(){
               this.setState((){
                 text = "Living Room";
-                currentList = LivingRoomList();
+                RoomToList(text);
+                currentList = bulbListView();
               });
               Navigator.of(context).pop();
             }),
             CustomListTile(Icons.lightbulb,'Kitchen',(){
               this.setState((){
                 text = "Kitchen";
-                selectedroomnum = 0;
                 RoomToList(text);
-                currentList = KitchenList();
+                currentList = bulbListView();
               });
               Navigator.of(context).pop();
             }),
             CustomListTile(Icons.lightbulb,'Bedroom',(){
               this.setState((){
                 text = "Bedroom";
-                currentList = BedroomList();
+                RoomToList(text);
+                currentList = bulbListView();
               });
               Navigator.of(context).pop();
             }),
             CustomListTile(Icons.lightbulb,'Bathroom',(){
               this.setState((){
                 text = "Bathroom";
-                currentList = BathroomList();
+                RoomToList(text);
+                currentList = bulbListView();
               });
     Navigator.of(context).pop();
     }),
@@ -224,57 +227,46 @@ class BuldListTile extends StatelessWidget {
   }
 }
 
-/*class KitchenList extends StatefulWidget{
-  KitchenListNew createState()=> KitchenListNew();
-}
-
-class KitchenListNew extends State<KitchenList> {
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: kitchenList.length,
-      itemBuilder: (context, index) {
-        return BuldListTile('images/bulb.png', kitchenList[index].Name, kitchenList[index].Watts, kitchenList[index].Colour, kitchenList[index].Amount,() async {
-          if (await confirm(
-            context,
-            title: Text('Confirm'),
-            content: Text('Would you like to remove ' + kitchenList[index].Name + '?'),
-            textOK: Text('Yes'),
-            textCancel: Text('No'),
-          )) {
-            kitchenList.removeAt(index);
-            return setState(() {});
-          }
-          return print('pressedCancel');
-        });
-      },
-
-    );
-  }
-}*/
-
-
-class KitchenList extends StatefulWidget{
-  KitchenListNew createState()=> KitchenListNew();
+class bulbListView extends StatefulWidget{
+  BulbListViewState createState()=> BulbListViewState();
 }
 
 void RoomToList(String selectedRoom) {
+print('--------------RoomToList------------');
+  print('Current List Cleared.');
+  print('Selected Room: ' + selectedRoom);
   CurList.clear();
   for (var room in AllRooms) {
-    if (room.roomname == selectedRoom) {
-      for (Bulbs bulb in room.bulb) {
-        CurList.add(bulb);
-        print(bulb.Name);
-      }
+
+
+    print('-------------');
+    print('Loop Room: ' + room.roomname);
+    print('Bulbs in room:');
+    print(room.bulb.length);
+    //print(room.bulb.single.Watts);
+
+    if (room.roomname.compareTo(selectedRoom) == 0) {
+
+      List<Bulbs> allBulbs = [];
+      allBulbs.clear();
+      allBulbs.addAll(room.bulb);
+
+        for (Bulbs bulb in allBulbs) {
+          CurList.add(bulb);
+          print('Found Buld Watts: ' + bulb.Watts);
+
+        }
     }
   }
+print('-----------------END----------------');
 }
 
-
-class KitchenListNew extends State<KitchenList> {
+class BulbListViewState extends State<bulbListView> {
   @override
 
   Widget build(BuildContext context) {
+
+    //print(CurList.length);
     return ListView.builder(
       itemCount: CurList.length,
       itemBuilder: (context, index) {
@@ -286,7 +278,7 @@ class KitchenListNew extends State<KitchenList> {
             textOK: Text('Yes'),
             textCancel: Text('No'),
           )) {
-            currentList.removeAt(index);
+            CurList.removeAt(index);
             return setState(() {});
           }
           return print('pressedCancel');
@@ -332,39 +324,6 @@ class LivingRoomList extends StatelessWidget {
     );
   }
 }
-
-class popUp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Welcome to Flutter'),
-        ),
-        body: Center(
-          child: FlatButton(
-            child: Text('Confirm Dialog'),
-            onPressed: () async {
-              if (await confirm(
-                context,
-                title: Text('Confirm'),
-                content: Text('Would you like to remove?'),
-                textOK: Text('Yes'),
-                textCancel: Text('No'),
-              )) {
-                return print('pressedOK');
-              }
-              return print('pressedCancel');
-            },
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
 
 class CreateNewEntry extends StatefulWidget{
   CreateEntry createState()=> CreateEntry();
@@ -498,13 +457,9 @@ class CreateEntry extends State<CreateNewEntry> {
             AddBulb(Bulbs(selectedBulb, Watts, selectedColour, Amount),selectedRoom);
             print('Bulb Added');
             print(selectedBulb + ' - ' + Watts +' - ' +  selectedColour +' - ' +  selectedRoom + ' - ' + Amount);
-            setState(() {
+            setState(() {});
+            Navigator.pop(context);
 
-            });
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MainPage()),
-            );
             }, child: Text('Add New Bulb'))
         ],
       )
@@ -513,11 +468,10 @@ class CreateEntry extends State<CreateNewEntry> {
   }
 }
 
-
-
-
-
 void AddBulb(Bulbs newBulb, String room) {
+      RoomToList(room);
       CurList.add(newBulb);
-      saveList(CurList,'Kitchen');
+      saveList(CurList,room);
+      print(room);
 }
+

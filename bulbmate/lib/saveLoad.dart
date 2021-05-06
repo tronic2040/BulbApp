@@ -3,33 +3,66 @@ import 'dart:convert';
 import 'Bulb.dart';
 import 'main.dart';
 
-List<String> roomsdata = [];
+List<RoomAndName> roomsdata = [];
 List<RoomBulbsList> AllRooms = [];
 List<Bulbs> oneRoom = [];
 
-readList() async {
+readList(String room) async {
+  //print('---------readList-------------');
   final prefs = await SharedPreferences.getInstance();
-  //kitchenList.addAll(json.decode(value));
+  final key = room;
+  final value = prefs.getString(key) ?? '';
+  roomsdata.add(RoomAndName(value, room));
 
-  for (var room in allRooms) {
-    var key = room;
-    var value = prefs.getString(key) ?? '';
-    print('Loaded: ' + room);
-    roomsdata.add(value);
+/*    if (value.length > 2) {
 
-    if (value.length > 2) {
-      print(json.decode(value));
       var roomSearch = json.decode(value);
+
+      oneRoom.clear();
       for (var room in roomSearch) {
-        var tb = Bulbs.fromJson(room);
-        oneRoom.add(tb);
+        //print('ROOM!! - ' + room.toString());
+          oneRoom.add(Bulbs.fromJson(room));
+          //print(Bulbs.fromJson(room));
       }
-      AllRooms.add(RoomBulbsList(oneRoom,room));
+      AllRooms.add(RoomBulbsList(oneRoom, key));
+
     }
 
-  }
+    for (var room in AllRooms) {
+      print(room.roomname);
+      for (var bulb in room.bulb) {
+        print(bulb.Watts);
+      }
+    }
+  print('------------END---------------');*/
 }
 
+fetchRooms() async {
+  roomsdata.clear();
+  AllRooms.clear();
+  for (var room in allRooms) {
+    await readList(room);
+  }
+
+  for (var rooms in roomsdata) {
+    List<Bulbs> tbl = [];
+    tbl.clear();
+    print('Room Name: ' + rooms.roomname);
+    print('First Bulb: ' + rooms.bulb);
+
+    if (rooms.bulb.length > 3) {
+      var roomBulbs = json.decode(rooms.bulb);
+      for (var bulb in roomBulbs) {
+        print(bulb);
+        Bulbs tb = Bulbs.fromJson(bulb);
+        tbl.add(tb);
+        print(tb.Watts);
+      }
+    }
+
+    AllRooms.add(RoomBulbsList(tbl,rooms.roomname));
+  }
+}
 
 
 saveList(List<Bulbs> roomList, String roomName) async {
@@ -40,4 +73,15 @@ saveList(List<Bulbs> roomList, String roomName) async {
   prefs.setString(key, value);
   print('Saved: ' + key);
   print('List: ' + value);
+  print('Room: ' + roomName);
+  fetchRooms();
+}
+
+void clearPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
+  //kitchenList.addAll(json.decode(value));
+
+    prefs.clear();
+
+  print('Data Cleared');
 }

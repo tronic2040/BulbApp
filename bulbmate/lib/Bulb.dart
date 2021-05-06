@@ -28,3 +28,10 @@ class RoomBulbsList {
 
   RoomBulbsList(this.bulb, this.roomname);
 }
+
+class RoomAndName {
+  String bulb;
+  String roomname;
+
+  RoomAndName(this.bulb, this.roomname);
+}

@@ -11,14 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99ecc036-4a47-40f7-8c73-58f0cf7a8ff7" name="Default Changelist" comment="Save Function added">
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/lightbulb+bases.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bulbmate/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulbmate/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulbmate/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +39,7 @@
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="C:/dart-sdk" />
-    <property name="settings.editor.selected.configurable" value="flutter.settings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -78,6 +74,14 @@
       <option name="presentableId" value="Default" />
       <updated>1619881718060</updated>
     </task>
+    <task id="LOCAL-00001" summary="Save Function added">
+      <created>1620235116798</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620235116798</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,10 +102,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Save Function added" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="896" key="AVDManager" timestamp="1620222482366">
+    <state x="92" y="92" width="1736" height="896" key="AVDManager" timestamp="1620288594944">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="92" y="92" width="1736" height="896" key="AVDManager/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620222482366" />
+    <state x="92" y="92" width="1736" height="896" key="AVDManager/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620288594944" />
     <state x="100" y="100" width="1334" height="880" key="DiffContextDialog" timestamp="1620224174230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -110,26 +114,26 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1619882187884" />
-    <state width="1474" height="292" key="GridCell.Tab.0.bottom" timestamp="1620235044676">
+    <state width="1474" height="292" key="GridCell.Tab.0.bottom" timestamp="1620243985233">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620235044676" />
-    <state width="1474" height="292" key="GridCell.Tab.0.center" timestamp="1620235044676">
+    <state width="1474" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
+    <state width="1474" height="292" key="GridCell.Tab.0.center" timestamp="1620243985233">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620235044676" />
-    <state width="1474" height="292" key="GridCell.Tab.0.left" timestamp="1620235044676">
+    <state width="1474" height="292" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
+    <state width="1474" height="292" key="GridCell.Tab.0.left" timestamp="1620243985233">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620235044676" />
-    <state width="1474" height="292" key="GridCell.Tab.0.right" timestamp="1620235044676">
+    <state width="1474" height="292" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
+    <state width="1474" height="292" key="GridCell.Tab.0.right" timestamp="1620243985233">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620235044676" />
-    <state x="461" y="185" key="SettingsEditor" timestamp="1620065081529">
+    <state width="1474" height="292" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
+    <state x="461" y="185" key="SettingsEditor" timestamp="1620235253244">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="185" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620065081529" />
+    <state x="461" y="185" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620235253244" />
     <state x="423" y="252" key="run.anything.popup" timestamp="1620222422247">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
