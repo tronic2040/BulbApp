@@ -74,7 +74,7 @@ saveList(List<Bulbs> roomList, String roomName) async {
   print('Saved: ' + key);
   print('List: ' + value);
   print('Room: ' + roomName);
-  fetchRooms();
+  await fetchRooms();
 }
 
 void clearPrefs() async {

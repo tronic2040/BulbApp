@@ -12,7 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="99ecc036-4a47-40f7-8c73-58f0cf7a8ff7" name="Default Changelist" comment="Save Function added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bulbmate/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" afterDir="false" />
     </list>

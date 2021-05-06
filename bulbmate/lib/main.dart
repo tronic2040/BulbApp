@@ -28,9 +28,9 @@ List<Bulbs> bedroomList = [];
 List<Bulbs> bathroomList = [];
 List<Bulbs> livingRoomList = [];
 List<Bulbs> CurList = [];
-
 List<RoomBulbsList> Rooms = [];
 
+String SelectedRoom = 'Bulb Mate';
 
 var currentList;
 
@@ -54,7 +54,7 @@ class HomePage extends State<MainPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(text),
+        title: Text(SelectedRoom),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.add),
             onPressed: (){
@@ -96,6 +96,7 @@ class HomePage extends State<MainPage>{
             CustomListTile(Icons.lightbulb,'Living Room',(){
               this.setState((){
                 text = "Living Room";
+                SelectedRoom = text;
                 RoomToList(text);
                 currentList = bulbListView();
               });
@@ -104,6 +105,7 @@ class HomePage extends State<MainPage>{
             CustomListTile(Icons.lightbulb,'Kitchen',(){
               this.setState((){
                 text = "Kitchen";
+                SelectedRoom = text;
                 RoomToList(text);
                 currentList = bulbListView();
               });
@@ -112,6 +114,7 @@ class HomePage extends State<MainPage>{
             CustomListTile(Icons.lightbulb,'Bedroom',(){
               this.setState((){
                 text = "Bedroom";
+                SelectedRoom = text;
                 RoomToList(text);
                 currentList = bulbListView();
               });
@@ -120,6 +123,7 @@ class HomePage extends State<MainPage>{
             CustomListTile(Icons.lightbulb,'Bathroom',(){
               this.setState((){
                 text = "Bathroom";
+                SelectedRoom = text;
                 RoomToList(text);
                 currentList = bulbListView();
               });
@@ -279,6 +283,7 @@ class BulbListViewState extends State<bulbListView> {
             textCancel: Text('No'),
           )) {
             CurList.removeAt(index);
+            saveList(CurList, SelectedRoom);
             return setState(() {});
           }
           return print('pressedCancel');
@@ -454,24 +459,29 @@ class CreateEntry extends State<CreateNewEntry> {
             ),
           ),
           ElevatedButton(onPressed: (){
-            AddBulb(Bulbs(selectedBulb, Watts, selectedColour, Amount),selectedRoom);
-            print('Bulb Added');
-            print(selectedBulb + ' - ' + Watts +' - ' +  selectedColour +' - ' +  selectedRoom + ' - ' + Amount);
-            setState(() {});
-            Navigator.pop(context);
+
+
+            //AddBulb(Bulbs(selectedBulb, Watts, selectedColour, Amount),selectedRoom);
+            setState(() {
+              print('Bulb Added');
+              print(selectedBulb + ' - ' + Watts +' - ' +  selectedColour +' - ' +  selectedRoom + ' - ' + Amount);
+              RoomToList(selectedRoom);
+              CurList.add(Bulbs(selectedBulb, Watts, selectedColour, Amount));
+              saveList(CurList,selectedRoom);
+              print(selectedRoom);
+              //Navigator.pop(context);
+              Route route = MaterialPageRoute(builder: (context) => MainPage());
+              SelectedRoom = selectedRoom;
+              currentList = bulbListView();
+              Navigator.push(context, route);
+            });
+
+
 
             }, child: Text('Add New Bulb'))
         ],
       )
-
     );
   }
-}
-
-void AddBulb(Bulbs newBulb, String room) {
-      RoomToList(room);
-      CurList.add(newBulb);
-      saveList(CurList,room);
-      print(room);
 }
 
