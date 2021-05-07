@@ -87,7 +87,7 @@ class HomePage extends State<MainPage>{
                               elevation: 10,
                               child: Padding(
                                 padding: const EdgeInsets.all(16.0),
-                                child: Image.asset('images/bulb.png',width: 60, height: 60),
+                                child: Image.asset('images/icon/icon.png',width: 60, height: 60),
                               ),
                             ),
                             Padding(
