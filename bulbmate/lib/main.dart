@@ -221,10 +221,24 @@ class CustomListTile extends StatelessWidget {
   }
 }
 
+
 _launchURL(String bulb) async {
-  //String _url = 'https://www.amazon.co.uk/s?k=' + bulb;
-  const _url = 'https://flutter.dev';
-  await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
+  final Uri uri = Uri(
+    scheme: 'https',
+    path: 'www.amazon.co.uk/s?k=' + bulb,
+/*    queryParameters: {
+      'name': 'Woolha dot com',
+      'about': 'Flutter Dart'
+    },*/
+  );
+
+  final url = 'https://www.amazon.co.uk/s?k=E10';
+
+  if (await canLaunch(url)) {
+    await launch(uri.toString());
+  } else {
+    print('Could not launch $url');
+  }
 }
 
 class BuldListTile extends StatelessWidget {
@@ -373,7 +387,9 @@ class BulbListViewState extends State<bulbListView> {
             return setState(() {});
           }
           return print('pressedCancel');
-        },() async { await _launchURL(CurList[index].Name);});
+        },(){
+        //_launchURL(CurList[index].Name);
+        });
       },
 
     );
