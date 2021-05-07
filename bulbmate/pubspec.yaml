@@ -1,5 +1,5 @@
-name: bulbmate
-description: A new Flutter project.
+name: BulbMate
+description: Simple to use App to store Bulbs Types around your home.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 4.0.0+4
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -25,21 +25,33 @@ dependencies:
     sdk: flutter
   shared_preferences: ^0.4.3
   confirm_dialog: ^1.0.0
+  flutter_launcher_icons: "^0.8.0"
+  url_launcher: ^6.0.3
+
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/icon/icon.png"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
+
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -35,3 +35,11 @@ class RoomAndName {
 
   RoomAndName(this.bulb, this.roomname);
 }
+
+class overviewStats {
+  String Room;
+  String Count;
+  String Bulbs;
+
+  overviewStats(this.Room,this.Count,this.Bulbs);
+}

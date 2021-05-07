@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -11,36 +14,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="99ecc036-4a47-40f7-8c73-58f0cf7a8ff7" name="Default Changelist" comment="Save Function added">
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/BA15d.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/BA15s.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/E40.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/EX39.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/G12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/G4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/G9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU5.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GU8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GY6.35.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GY8.6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/GY8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/MEDIUM BI-PIN.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/MINI BI-PIN.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/SC.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bulbmate/images/SINGLE BI-PIN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/icon/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/images/icon/need to put icon.png here!.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bulbmate/lib/expTile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/icon.afphoto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bulbmate/images/lightbulb+bases.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/ba22d.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/android/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/android/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/Bulb.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bulbmate/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/lib/saveLoad.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bulbmate/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bulbmate/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/bulbmate/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +34,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[VirtualDevicePath@C:\Users\troni\.android\avd\Copy_of_Pixel_3a_API_30.avd]" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -61,15 +48,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="C:/dart-sdk" />
-    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bulbmate" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Development\Flutter Apps\BulbApp\bulbmate" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\Development\Flutter Apps\BulbApp\bulbmate" />
     </key>
@@ -90,6 +84,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -129,38 +124,46 @@
     <option name="LAST_COMMIT_MESSAGE" value="Save Function added" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="92" y="92" width="1736" height="896" key="AVDManager" timestamp="1620288594944">
+    <state x="447" y="278" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1620387172347">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="92" y="92" width="1736" height="896" key="AVDManager/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620288594944" />
+    <state x="447" y="278" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620387172347" />
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620385769006">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="287" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620385769006" />
+    <state x="92" y="92" width="1736" height="896" key="AVDManager" timestamp="1620373764252">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="92" y="92" width="1736" height="896" key="AVDManager/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620373764252" />
     <state x="100" y="100" width="1334" height="880" key="DiffContextDialog" timestamp="1620224174230">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1334" height="880" key="DiffContextDialog/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620224174230" />
-    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1619882187884">
+    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1620382726435">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1619882187884" />
-    <state width="1474" height="292" key="GridCell.Tab.0.bottom" timestamp="1620243985233">
+    <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620382726435" />
+    <state width="1474" height="291" key="GridCell.Tab.0.bottom" timestamp="1620382969941">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
-    <state width="1474" height="292" key="GridCell.Tab.0.center" timestamp="1620243985233">
+    <state width="1474" height="291" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620382969941" />
+    <state width="1474" height="291" key="GridCell.Tab.0.center" timestamp="1620382969941">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
-    <state width="1474" height="292" key="GridCell.Tab.0.left" timestamp="1620243985233">
+    <state width="1474" height="291" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620382969941" />
+    <state width="1474" height="291" key="GridCell.Tab.0.left" timestamp="1620382969941">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
-    <state width="1474" height="292" key="GridCell.Tab.0.right" timestamp="1620243985233">
+    <state width="1474" height="291" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620382969941" />
+    <state width="1474" height="291" key="GridCell.Tab.0.right" timestamp="1620382969941">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1474" height="292" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620243985233" />
-    <state x="461" y="185" key="SettingsEditor" timestamp="1620235253244">
+    <state width="1474" height="291" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620382969941" />
+    <state x="461" y="185" key="SettingsEditor" timestamp="1620387480048">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="461" y="185" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620235253244" />
+    <state x="461" y="185" key="SettingsEditor/0.0.1920.1080/1920.0.1440.900@0.0.1920.1080" timestamp="1620387480048" />
     <state x="423" y="252" key="run.anything.popup" timestamp="1620222422247">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
